@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		<title><%=title%></title>
+		<meta name="generator" content="Bootply" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+		<!--[if lt IE 9]>
+			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+        <link href="css/styles.css" rel="stylesheet">
+	</head>
+	<body>
+<header class="navbar navbar-bright navbar-fixed-top" role="banner">
+  <div class="container">
+    <div class="navbar-header">
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="/" class="navbar-brand">Home</a>
+    </div>
+    <nav class="collapse navbar-collapse" role="navigation">
+      <ul class="nav navbar-nav">
+        <%for(i=0;i<nav.length;i++){%>
+        <li>
+          <a href="<%=nav[i].link%>"><%=nav[i].name%></a>
+        </li>
+        <%}%>
+      </ul>
+      <ul class="nav navbar-right navbar-nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-search"></i></a>
+          <ul class="dropdown-menu" style="padding:12px;">
+            <form class="form-inline">
+              <button type="submit" class="btn btn-default pull-right"><i class="glyphicon glyphicon-search"></i></button><input type="text" class="form-control pull-left" placeholder="Search">
+            </form>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <!-- signup form -->
+    <div class="login-box">
+        <form action="/" onsubmit="return validation()">
+          <br>
+            <header style="color:rgb(174, 191, 207);">Sign Up</header>
+            <div>
+                <label style="margin-left: 10%; color: rgb(174, 191, 207);">Name</label>
+                <br>
+                <input id="name" style="margin-left: 10%; color: rgb(174, 191, 207);" type="text" placeholder="Name" required>
+            </div>
+            <div>
+                <label style="margin-left: 10%; color: rgb(174, 191, 207);">Phone No.</label>
+                <br>
+                <input style="margin-left: 10%; color: rgb(174, 191, 207);" id = "phone" type="text" placeholder="Phone No." onfocus="valname()" required>
+            </div>
+            <div>
+                <label style="margin-left: 10%; color: rgb(174, 191, 207);">email id</label>
+                <br>
+                <input id = "email"  style="margin-left: 10%; color: rgb(174, 191, 207);" type="text" placeholder="email id" onfocus="valphone()" required>
+            </div>
+            <div>
+                <label style="margin-left: 10%; color: rgb(174, 191, 207);">Password</label>
+                <br>
+                <input id = "pwd" class="passwd" onkeyup="trigger()" style="margin-left: 10%;" type="password" placeholder="password" onfocus="valemail()" required>
+            </div>
+            <div class="indicator">
+              <span class="weak"></span>
+              <span class="medium"></span>
+              <span class="strong"></span>
+            </div>
+            <div class="text"></div>
+            <br>
+            <div id=signbt>
+                <input  style="margin-left: 36%; " type="submit" value="sign up" onfocus="valpwd(),valphone()">
+            </div>
+            <br>
+            <div>
+                <h7 style="margin-left: 15%; color: rgb(174, 191, 207);">Already have an account?</h7>
+                <a style="margin-left: 40%; color:blanchedalmond" href="/login">Login</a>
+            </div>
+            <br>
+        </div>
+        </form>
+        <!-- signup form end-->
+        <script>
+          const indicator = document.querySelector(".indicator");
+          const input = document.querySelector(".passwd");
+          const weak = document.querySelector(".weak");
+          const medium = document.querySelector(".medium");
+          const strong = document.querySelector(".strong");
+          const text = document.querySelector(".text");
+          let regExpWeak = /[a-z]/;
+          let regExpMedium = /\d+/;
+          let regExpStrong = /.[!,@,#,$,%,^,&,*,?,_,~,-,(,)]/;
+          function trigger(){
+            if(input.value != ""){
+              indicator.style.display = "block";
+              indicator.style.display = "flex";
+              if(input.value.length <= 3 && (input.value.match(regExpWeak) || input.value.match(regExpMedium) || input.value.match(regExpStrong)))no=1;
+              if(input.value.length >= 6 && ((input.value.match(regExpWeak) && input.value.match(regExpMedium)) || (input.value.match(regExpMedium) && input.value.match(regExpStrong)) || (input.value.match(regExpWeak) && input.value.match(regExpStrong))))no=2;
+              if(input.value.length >= 6 && input.value.match(regExpWeak) && input.value.match(regExpMedium) && input.value.match(regExpStrong))no=3;
+              if(no==1){
+                weak.classList.add("active");
+                text.style.display = "block";
+                text.textContent = "weak password";
+                text.classList.add("weak");
+              }
+              if(no==2){
+                medium.classList.add("active");
+                text.textContent = "medium password";
+                text.classList.add("medium");
+              }else{
+                medium.classList.remove("active");
+                text.classList.remove("medium");
+              }
+              if(no==3){
+                weak.classList.add("active");
+                medium.classList.add("active");
+                strong.classList.add("active");
+                text.textContent = "strong password";
+                text.classList.add("strong");
+              }else{
+                strong.classList.remove("active");
+                text.classList.remove("strong");
+              }
+            }else{
+              indicator.style.display = "none";
+              text.style.display = "none";
+            }
+          }
+        </script>
+
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6">
+        <ul class="list-inline">
+          <li><i class="icon-facebook icon-2x"></i></li>
+          <li><i class="icon-twitter icon-2x"></i></li>
+          <li><i class="icon-google-plus icon-2x"></i></li>
+          <li><i class="icon-pinterest icon-2x"></i></li>
+        </ul>
+        
+      </div>
+      <div class="col-sm-6">
+          <p class="pull-right">Built with <i class="icon-heart-empty"></i> at <a href="http://www.bootply.com">Bootply</a></p>      
+      </div>
+    </div>
+  </div>
+</footer>
+	<!-- script references -->
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/form.js"></script>
+	</body>
+</html>
