@@ -31,14 +31,13 @@ function  router(nav){
         });
     });
     
-    booksRouter.get('/addbook',function(req,res){ // here '/books' is given such that whenever a link referred to books.ejs is called it should render this
-    res.render("addbook",
-        {
-            nav,
-            title:'Add Books',
-            books
-        });
-    });
+    // booksRouter.get('/addbook',function(req,res){ // here '/books' is given such that whenever a link referred to books.ejs is called it should render this
+    // res.render("addbook",
+    //     {
+    //         nav,
+    //         title:'Add Books'
+    //     });
+    // });
 
 
 

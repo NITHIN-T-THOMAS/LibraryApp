@@ -50,30 +50,36 @@
 
     <!-- Form start -->
     <div class="login-box">
-        <form>
+        <form method="GET" action="/admin/added">
             <h2 class="container-1" style="margin-left: 15%; padding-top: 5%;color: #fff;">Add Book</h2>
             <br>
             <div  class="container-1" >
                 <label id="user_lab" style="color: rgb(255, 255, 255);">Book Name</label>
-                <input class="container-1"  id="use" type="text" placeholder="Book Name" required>
+                <input class="container-1" name="Book_Name" id="use" type="text" placeholder="Book Name" required>
             </div>
             <br>
             <div  class="container-1" >
                 <label id="user_lab" style="color: rgb(255, 255, 255);">Genre</label>
-                <input class="container-1"  id="use" type="text" placeholder="Genre" required>
+                <input class="container-1" name="Genre" id="use" type="text" placeholder="Genre" required>
             </div>
             <br>
             <div  class="container-1" >
                 <label id="user_lab" style="color: rgb(255, 255, 255);">Author Name</label>
-                <input class="container-1"  id="use" type="text" placeholder="Author Name" required>
+                <input class="container-1" name="Author_Name" id="use" type="text" placeholder="Author Name" required>
+            </div>
+            <br>
+            <div  class="container-1" >
+              <label id="user_lab" style="color: rgb(255, 255, 255);">Image</label>
+              <input class="container-1" name="Image" id="use" type="file" placeholder="image" required>
             </div>
             <br>
             <div class="nav justify-content-center text-white">
-                <button id="btn" class="btn btn-outline-success" type="button" >Add</button>
+                <button id="btn" class="btn btn-outline-success" type="submit" >Add</button>
             </div>
 
         </form>
     </div>
+<!-- form end -->
 
 <footer>
   <div class="container">
