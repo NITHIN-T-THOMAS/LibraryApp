@@ -27,7 +27,7 @@
     </div>
     <nav class="collapse navbar-collapse" role="navigation">
       <ul class="nav navbar-nav">
-        <%for(i=0;i<nav.length;i++){%>
+        <%for(i=0;i<nav.length-3;i++){%>
         <li>
           <a href="<%=nav[i].link%>"><%=nav[i].name%></a>
         </li>
@@ -50,26 +50,31 @@
 
     <!-- Form start -->
     <div class="login-box">
-        <form>
+        <form method="POST" action="/admin/s/addauth">
             <h2 class="container-1" style="margin-left: 15%; padding-top: 5%;color: #fff;">Add author</h2>
             <br>
             <div  class="container-1" >
                 <label id="user_lab" style="color: rgb(255, 255, 255);">Author name</label>
-                <input class="container-1"  id="use" type="text" placeholder="Author name" required>
+                <input class="container-1"  id="use" type="text" name="name" placeholder="Author name" required>
             </div>
             <br>
             <div  class="container-1" >
                 <label id="user_lab" style="color: rgb(255, 255, 255);">Genre</label>
-                <input class="container-1"  id="use" type="text" placeholder="Genre" required>
+                <input class="container-1"  id="use" type="text" name="genre" placeholder="Genre" required>
             </div>
             <br>
             <div  class="container-1" >
                 <label id="user_lab" style="color: rgb(255, 255, 255);">Works</label>
-                <input class="container-1"  id="use" type="text" placeholder="Works" required>
+                <input class="container-1"  id="use" type="text" name="work" placeholder="Works" required>
+            </div>
+            <br>
+            <div  class="container-1" >
+              <label id="user_lab" style="color: rgb(255, 255, 255);">Image</label>
+              <input class="container-1"  id="use" type="file" name="img" placeholder="image" required>
             </div>
             <br>
             <div class="nav justify-content-center text-white">
-                <button id="btn" class="btn btn-outline-success" type="button" >Add</button>
+                <button id="btn" class="btn btn-outline-success" type="submit" >Add</button>
             </div>
 
         </form>

@@ -1,6 +1,7 @@
 const express = require('express');
 const adminRouter = express.Router();
 const BookData = require('../model/bookdata')
+const AuthorData = require('../model/authordata')
 
 function router(nav){
 
@@ -26,6 +27,20 @@ function router(nav){
         res.redirect('/books')
 
         });
+
+        adminRouter.post('/s/addauth',function(req,res){
+            var item = {
+                name: req.body.name,
+                genre: req.body.genre,
+                work: req.body.work,
+                img: req.body.img
+            }
+            console.log(item);
+
+            var authorAddData = AuthorData(item);
+            authorAddData.save(); //all params will be saved to the database
+            res.redirect('/authors')
+            });
 
     return adminRouter;
 }

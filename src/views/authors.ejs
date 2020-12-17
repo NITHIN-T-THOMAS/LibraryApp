@@ -27,7 +27,7 @@
     </div>
     <nav class="collapse navbar-collapse" role="navigation">
       <ul class="nav navbar-nav">
-        <%for(i=1;i<nav.length-2;i++){%>
+        <%for(i=1;i<nav.length-3;i++){%>
         <li>
           <a href="<%=nav[i].link%>"><%=nav[i].name%></a>
         </li>
@@ -100,12 +100,16 @@
             <a class="story-title" href="#"><img alt="" src="/images/<%=authors[i].img%>" style=" width:100px;height:100px" class="img-circle"></a>
             </div>
             <div class="col-md-10 col-sm-9">
-              <h3><%=authors[i].title%></h3>
+              <h3><%=authors[i].name%></h3>
               <div class="row">
                 <div class="col-xs-9">
-                  <h4><span class="label label-default"></span><%=authors[i].author%></h4><h4>
-                  <small style="font-family:courier,'new courier';" class="text-muted"><%=authors[i].genre%>  • 
+                  <h4><span class="label label-default"></span><%=authors[i].genre%></h4><h4>
+                  <small style="font-family:courier,'new courier';" class="text-muted"><%=authors[i].work%>  • 
                     <a href="/authors/<%=i%>" class="text-muted">Read More</a></small>
+                    <a href="/authors/edita/<%=authors[i]._id%>"><button id="btn" class="btn btn-outline-success" >UPDATE</button></a>
+                    •••••••••••••••••••••
+                    <a href="/authors/l/t/<%=authors[i]._id%>"><button id="btn" class="btn btn-outline-success" >DELETE</button></a>
+                    _____________________________________________________________________________
                   </h4></div>
                 <div class="col-xs-3"></div>
               </div>

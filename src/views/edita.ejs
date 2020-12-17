@@ -6,12 +6,12 @@
 		<title><%=title%></title>
 		<meta name="generator" content="Bootply" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="/css/bootstrap.min.css" rel="stylesheet">
 		<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
 		<!--[if lt IE 9]>
 			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
-        <link href="css/styles.css" rel="stylesheet">
+        <link href="/css/styles.css" rel="stylesheet">
 	</head>
 	<body>
 <header class="navbar navbar-bright navbar-fixed-top" role="banner">
@@ -27,7 +27,7 @@
     </div>
     <nav class="collapse navbar-collapse" role="navigation">
       <ul class="nav navbar-nav">
-        <%for(i=2;i<nav.length-1;i++){%>
+        <%for(i=0;i<nav.length-3;i++){%>
         <li>
           <a href="<%=nav[i].link%>"><%=nav[i].name%></a>
         </li>
@@ -50,25 +50,37 @@
 
     <!-- Form start -->
     <div class="login-box">
-        <form method="POST" action="/login/success">
-            <h2 class="container-1" style="margin-left: 15%; padding-top: 5%;color: #fff;">User Login</h2>
+        <form method="POST" action="/authors/b/<%=author._id%>">
+            <h2 class="container-1" style="margin-left: 15%; padding-top: 5%;color: #fff;">Edit Book</h2>
             <br>
             <div  class="container-1" >
-                <label id="user_lab" style="color: rgb(255, 255, 255);">Username</label>
-                <input class="container-1"  id="use" type="text" placeholder="Username" name="username" required>
+                <label id="user_lab" style="color: rgb(255, 255, 255);">Author Name</label>
+                <input class="container-1" name="name" id="use" type="text" value="<%=author.name%>" required>
             </div>
             <br>
             <div  class="container-1" >
-                <label style="color: rgb(255, 253, 253);">Password</label>
-                <input id="pwd" type="password" placeholder="password" name="password" required>
+                <label id="user_lab" style="color: rgb(255, 255, 255);">Genre</label>
+                <input class="container-1" name="genre" id="use" type="text" value="<%=author.genre%>" required>
+            </div>
+            <br>
+            <div  class="container-1" >
+                <label id="user_lab" style="color: rgb(255, 255, 255);">Author Name</label>
+                <input class="container-1" name="work" id="use" type="text" value="<%=author.work%>" required>
+            </div>
+            <br>
+            <div  class="container-1" >
+              <label id="user_lab" style="color: rgb(255, 255, 255);">Image</label>
+              <input class="container-1" name="img" id="use" type="file" placeholder="image" required>
             </div>
             <br>
             <div class="nav justify-content-center text-white">
-                <button id="btn" class="btn btn-outline-success" type="submit" >Login</button>
+                <button id="btn" class="btn btn-outline-success" type="submit" >Edit</button>
             </div>
 
         </form>
     </div>
+<!-- form end -->
+
 <footer>
   <div class="container">
     <div class="row">
@@ -79,7 +91,7 @@
           <li><i class="icon-google-plus icon-2x"></i></li>
           <li><i class="icon-pinterest icon-2x"></i></li>
         </ul>
-
+        
       </div>
       <div class="col-sm-6">
           <p class="pull-right">Built with <i class="icon-heart-empty"></i> at <a href="http://www.bootply.com">Bootply</a></p>      
@@ -89,26 +101,6 @@
 </footer>
 	<!-- script references -->
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <!-- <script>
-      $(document).ready(function(){
-      $("#btn").click(function(){
-        var a="";
-        a= $("#use").val();
-        console.log(a);
-        var b=  $("#pwd").val();
-        if(a==""||b==""){
-            alert("enter all fields");
-        }
-        else if(a=="admin"&&b=="12345"){
-            window.location.href = "/loged";
-        }
-        else{
-            alert("invalid username or password");
-        }
-    });
-});
-
-    </script> -->
+		<script src="js/bootstrap.min.js"></script>
 	</body>
 </html>
