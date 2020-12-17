@@ -27,7 +27,7 @@
     </div>
     <nav class="collapse navbar-collapse" role="navigation">
       <ul class="nav navbar-nav">
-        <%for(i=0;i<nav.length;i++){%>
+        <%for(i=0;i<nav.length-3;i++){%>
         <li>
           <a href="<%=nav[i].link%>"><%=nav[i].name%></a>
         </li>
@@ -50,7 +50,7 @@
 
     <!-- Form start -->
     <div class="login-box">
-        <form method="GET" action="/admin/added">
+        <form method="POST" action="/admin/added">
             <h2 class="container-1" style="margin-left: 15%; padding-top: 5%;color: #fff;">Add Book</h2>
             <br>
             <div  class="container-1" >
@@ -59,13 +59,13 @@
             </div>
             <br>
             <div  class="container-1" >
-                <label id="user_lab" style="color: rgb(255, 255, 255);">Genre</label>
-                <input class="container-1" name="Genre" id="use" type="text" placeholder="Genre" required>
+                <label id="user_lab" style="color: rgb(255, 255, 255);">Author Name</label>
+                <input class="container-1" name="Author_Name" id="use" type="text" placeholder="Genre" required>
             </div>
             <br>
             <div  class="container-1" >
-                <label id="user_lab" style="color: rgb(255, 255, 255);">Author Name</label>
-                <input class="container-1" name="Author_Name" id="use" type="text" placeholder="Author Name" required>
+                <label id="user_lab" style="color: rgb(255, 255, 255);">Genre</label>
+                <input class="container-1" name="Genre" id="use" type="text" placeholder="Author Name" required>
             </div>
             <br>
             <div  class="container-1" >

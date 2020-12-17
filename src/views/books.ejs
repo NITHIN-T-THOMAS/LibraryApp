@@ -27,13 +27,13 @@
     </div>
     <nav class="collapse navbar-collapse" role="navigation">
       <ul class="nav navbar-nav">
-        <%for(i=0;i<nav.length-3;i++){%>
+        <%for(i=0;i<nav.length-4;i++){%>
         <li>
           <a href="<%=nav[i].link%>"><%=nav[i].name%></a>
         </li>
         <%}%>
         <li>
-          <a href="/login">Add book</a>
+          <a href="/books/ad/d/addbook">Add book</a>
         </li>
       </ul>
       <ul class="nav navbar-right navbar-nav">
@@ -104,8 +104,13 @@
               <div class="row">
                 <div class="col-xs-9">
                   <h4><span class="label label-default"></span><%=books[i].author%></h4><h4>
-                  <small style="font-family:courier,'new courier';" class="text-muted"><%=books[i].genre%>  • 
-                    <a href="/books/<%=i%>" class="text-muted">Read More</a></small>
+                  <small style="font-family:courier,'new courier';" class="text-muted"><%=books[i].genre%>  •
+                    <a href="/books/<%=books[i]._id%>" class="text-muted">Read More</a></small>
+                    <a href="/books/edit/<%=books[i]._id%>"><button id="btn" class="btn btn-outline-success" >UPDATE</button></a>
+                    •••••••••••••••••••••
+
+                    <a href="/books/l/t/<%=books[i]._id%>"><button id="btn" class="btn btn-outline-success" >DELETE</button></a>
+                    _____________________________________________________________________________
                   </h4></div>
                 <div class="col-xs-3"></div>
               </div>
