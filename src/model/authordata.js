@@ -2,7 +2,7 @@
 const mongoose = require('mongoose');
 
 //Database connection
-mongoose.connect('mongodb://localhost:27017/Library');
+mongoose.connect('mongodb+srv://userone:userone@ictlib.xusnv.mongodb.net/LIBRAARY?retryWrites=true&w=majority');
 
 //schema definition
 const Schema = mongoose.Schema;
@@ -15,6 +15,6 @@ const AuthorSchema = new Schema({
 });
 
 //Model creation
-var Authordata = mongoose.model('authordata',AuthorSchema); //Note: if the name is singular the database will show a plural name automatically i.e here 'bookdata' will become 'bookdatas' in database
+var Authordata = mongoose.model('authordata',AuthorSchema);
 
 module.exports = Authordata;
